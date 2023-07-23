@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Button from './Button';
 
 const Header = () => {
+    console.log('test');
     return (
         <div className='h-12 xl:h-14 bg-zinc-800 py-2 flex items-center'>
             <div className='px-4 w-full max-w-[1270px] mx-auto flex flex-row'>
