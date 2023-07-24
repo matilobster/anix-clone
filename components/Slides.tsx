@@ -1,34 +1,39 @@
 import React from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 // Import Swiper React components
-import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import { Swiper } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 // import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-// import 'swiper/css/scrollbar';
+
+import SwiperNavButton from './SwiperNavButton';
 
 interface SlideProps {
     children: React.ReactNode;
 }
 
 const Slides: React.FC<SlideProps> = ({ children }): JSX.Element => {
-    const { push } = useRouter();
-    // console.log(jobs);
-
     return (
         <>
             <Swiper
-                className='mySwiper'
-                modules={[Navigation]}
-                navigation
-                grabCursor={true}
                 slidesPerView={1}
+                autoplay={{
+                    delay: 10000,
+                    disableOnInteraction: false,
+                }}
+                grabCursor={true}
+                loop={true}
+                modules={[Autoplay]}
+                className='relative z-0'
             >
                 {children}
+                <div className='flex justify-end absolute z-10 bottom-0 right-2'>
+                    <SwiperNavButton></SwiperNavButton>
+                </div>
             </Swiper>
         </>
     );

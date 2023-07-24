@@ -1,44 +1,48 @@
 'use client';
 
-import Card from '@/components/Card';
-
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { MdOutlineNavigateNext } from 'react-icons/md';
-import SwiperNavButton from '@/components/SwiperNavButton';
+
+import Slides from '@/components/Slides';
+import Card from '@/components/Card';
 
 export default function Home() {
+    const animes = [
+        {
+            id: 0,
+            tittle: 'Jujustu Kaisen 2nd Season',
+            image: 'https://areajugones.sport.es/wp-content/uploads/2023/03/jujutsu-kaisen-temporada-2.jpeg',
+            description: 'hola que pasa',
+            rating: 8,
+        },
+        {
+            id: 1,
+            tittle: 'Mushoku Tensei II: Isekai Ittara Honki Dasu',
+            image: 'https://static.bunnycdn.ru/i/cache/images/6/66/66f02ab78e1b850366ff56353c5f2073.jpg',
+            description: 'hola que pasa',
+            rating: 9,
+        },
+    ];
+
     return (
         <div className=''>
             <div className='top'>
-                <Swiper
-                    slidesPerView={1}
-                    autoplay={{
-                        delay: 10000,
-                        disableOnInteraction: false,
-                    }}
-                    grabCursor={true}
-                    loop={true}
-                    // navigation={true}
-                    modules={[Autoplay]}
-                    // className='mySwiper'
-                    className='relative z-0'
-                >
-                    <SwiperSlide>
-                        <Card title='jujutsu'></Card>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card title='mushoku'></Card>
-                    </SwiperSlide>
-                    <div className='flex justify-end absolute z-10 bottom-0 right-2'>
-                        <SwiperNavButton></SwiperNavButton>
-                    </div>
-                </Swiper>
+                <Slides>
+                    {animes.map((anime, index: number) => (
+                        <SwiperSlide key={index}>
+                            <Card
+                                title={anime.tittle}
+                                image={anime.image}
+                                description={anime.description}
+                                rating={anime.rating}
+                            ></Card>
+                        </SwiperSlide>
+                    ))}
+                </Slides>
             </div>
         </div>
     );
