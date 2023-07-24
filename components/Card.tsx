@@ -1,9 +1,9 @@
 import { AiFillPlayCircle } from 'react-icons/ai';
 import { BsFillBookmarkPlusFill } from 'react-icons/bs';
 import Button from './Button';
-import SwiperNavButton from './SwiperNavButton';
 
 type Props = {
+    id?: number;
     title?: string;
     image?: string;
     description?: string;
@@ -12,7 +12,7 @@ type Props = {
 
 const Card = ({ title, image, description, rating }: Props): JSX.Element => {
     return (
-        <div className='h-fit w-full text-zinc-200 flex'>
+        <div className='h-fit w-full text-zinc-200 flex '>
             <div className='w-36 sm:w-48 lg:w-52'>
                 <img
                     src={image}

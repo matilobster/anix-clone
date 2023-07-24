@@ -29,7 +29,7 @@ export default function Home() {
     ];
 
     return (
-        <div className=''>
+        <div className='w-full h-full'>
             <div className='top'>
                 <Slides>
                     {animes.map((anime, index: number) => (

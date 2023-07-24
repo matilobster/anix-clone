@@ -18,9 +18,10 @@ interface SlideProps {
 
 const Slides: React.FC<SlideProps> = ({ children }): JSX.Element => {
     return (
-        <>
+        <div className='w-full'>
             <Swiper
                 slidesPerView={1}
+                spaceBetween={350}
                 autoplay={{
                     delay: 10000,
                     disableOnInteraction: false,
@@ -35,7 +36,7 @@ const Slides: React.FC<SlideProps> = ({ children }): JSX.Element => {
                     <SwiperNavButton></SwiperNavButton>
                 </div>
             </Swiper>
-        </>
+        </div>
     );
 };
 

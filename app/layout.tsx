@@ -1,5 +1,5 @@
-import Header from '@/components/Header';
 import './globals.css';
+import Header from '@/components/Header';
 import type { Metadata } from 'next';
 import { Lexend_Deca } from 'next/font/google';
 import Sidebar from '@/components/Sidebar';
