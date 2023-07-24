@@ -47,8 +47,8 @@ Props): JSX.Element => {
     const button = (
         <Component
             className={twMerge(
-                'rounded-sm flex items-center min-w-0',
-                clonedIcon && children ? 'justify-start' : 'justify-center',
+                'rounded-sm flex justify-center items-center min-w-0 h-9',
+                // clonedIcon && children ? 'justify-start' : 'justify-center',
                 block && children ? 'w-full' : null,
                 disabled ? 'opacity-50 cursor-not-allowed' : null,
                 buttonBackgroundByAppearanceProp[appearance],
@@ -60,7 +60,7 @@ Props): JSX.Element => {
                     : buttonTextInteractionByAppearanceProp[appearance],
                 disabled ? null : borderInteractionByAppearanceProp[appearance],
                 children ? buttonSpacingBySizeProp[size] : null,
-                buttonHeightBySizeProp[size],
+                children ? buttonWidthBySizeProp[size] : null,
                 clonedIcon && !children
                     ? iconOnlyButtonWidthBySizeProp[size]
                     : null,
@@ -78,9 +78,9 @@ Props): JSX.Element => {
             {children ? (
                 <div
                     className={twMerge(
-                        'truncate ',
-                        textWeightBySizeProp[size],
-                        textSizeBySizeProp[size]
+                        'truncate',
+                        textSizeBySizeProp[size],
+                        textWeightBySizeProp[size]
                     )}
                 >
                     {children}
@@ -98,7 +98,7 @@ Props): JSX.Element => {
 
 const buttonBackgroundByAppearanceProp: Record<Appearance, string> = {
     blue: 'bg-[#95b6d0]',
-    gray: 'bg-gray-500',
+    gray: 'bg-[#4c4c4c]',
     delete: 'bg-red-500',
 };
 
@@ -110,13 +110,13 @@ const buttonBackgroundDisabledByAppearanceProp: Record<Appearance, string> = {
 
 const buttonBackgroundInteractionByAppearanceProp: Record<Appearance, string> =
     {
-        blue: 'hover:bg-blue-400 active:bg-blue-600',
-        gray: 'hover:bg-gray-400 active:bg-gray-600',
-        delete: 'hover:bg-red-400 active:bg-red-600',
+        blue: 'transition duration-150 hover:bg-[#b1c9dd] active:bg-[#b1c9dd]',
+        gray: 'transition duration-150 hover:bg-[#6c6c6c] active:bg-[#6c6c6c]',
+        delete: 'transition duration-150 hover:bg-red-400 active:bg-red-600',
     };
 
 const buttonTextInteractionByAppearanceProp: Record<Appearance, string> = {
-    blue: 'hover:text-white active:text-white',
+    blue: 'hover:text-zinc-900 active:text-zinc-900',
     gray: 'hover:text-white active:text-white',
     delete: 'hover:text-white active:text-white',
 };
@@ -140,15 +140,15 @@ const borderInteractionByAppearanceProp: Record<Appearance, string> = {
 };
 
 const buttonSpacingBySizeProp: Record<Size, string> = {
-    small: 'px-3 space-x-8',
-    medium: 'px-16 space-x-16',
+    small: 'gap-1',
+    medium: 'gap-1',
     big: 'px-16 space-x-16',
 };
 
-const buttonHeightBySizeProp: Record<Size, string> = {
-    small: 'h-8',
-    medium: 'h-16',
-    big: 'h-60',
+const buttonWidthBySizeProp: Record<Size, string> = {
+    small: 'w-16',
+    medium: 'w-32',
+    big: 'w-40',
 };
 
 const iconOnlyButtonWidthBySizeProp: Record<Size, string> = {
@@ -159,19 +159,19 @@ const iconOnlyButtonWidthBySizeProp: Record<Size, string> = {
 
 const textSizeBySizeProp: Record<Size, string> = {
     small: 'text-sm',
-    medium: 'text-lg',
-    big: 'text-xl',
+    medium: 'text-sm',
+    big: 'text-sm',
 };
 
 const textWeightBySizeProp: Record<Size, string> = {
     small: 'font-normal',
-    medium: 'font-semibold',
+    medium: 'font-normal',
     big: 'font-semibold',
 };
 
 const iconSizeBySizeProp: Record<Size, number> = {
-    small: 16,
-    medium: 22,
+    small: 14,
+    medium: 15,
     big: 28,
 };
 

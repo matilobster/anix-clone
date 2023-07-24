@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Button from './Button';
 
 const Header = () => {
-    console.log('test');
     return (
         <div className='h-12 xl:h-14 bg-zinc-800 py-2 flex items-center'>
             <div className='px-4 w-full max-w-[1270px] mx-auto flex flex-row'>
@@ -23,7 +22,7 @@ const Header = () => {
                 </div>
                 <div className='right-div basis-3/12 sm:basis-1/6 flex items-center gap-4 sm:gap-3 md:justify-between'>
                     <div className='invisible sm:visible flex items-center md:basis-1/2'>
-                        en/jp
+                        EN/JP
                     </div>
                     <div className='basis-1/3 flex justify-end md:hidden'>
                         <BiSearch
