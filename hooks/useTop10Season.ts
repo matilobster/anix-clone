@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { getSeasonAnimes } from '../services/animes';
+import { getTop10Season } from '../services/animes';
 import { Anime } from '../types/types';
 
-export const useSeason = (): { animes: Anime[]; isLoading: boolean } => {
+export const useTop10Season = (): { animes: Anime[]; isLoading: boolean } => {
     const [animes, setAnimes] = useState<Anime[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        getSeasonAnimes()
+        getTop10Season()
             .then((data) => {
                 setAnimes(data.data);
                 setIsLoading(false);

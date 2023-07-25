@@ -9,10 +9,10 @@ import 'swiper/css/navigation';
 
 import Slides from '@/components/Slides';
 import Card from '@/components/Card';
-import { useSeason } from '@/hooks/useSeason';
+import { useTop10Season } from '@/hooks/useTop10Season';
 
 export default function Home() {
-    const { animes, isLoading } = useSeason();
+    const { animes: top10, isLoading } = useTop10Season();
 
     return (
         <div className='w-full h-full'>
@@ -23,7 +23,7 @@ export default function Home() {
                     </span>
                 )}
                 <Slides>
-                    {animes.map((anime, index: number) => (
+                    {top10.map((anime, index: number) => (
                         <SwiperSlide key={index}>
                             <Card
                                 title={anime.title}
