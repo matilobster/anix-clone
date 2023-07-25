@@ -9,35 +9,29 @@ import 'swiper/css/navigation';
 
 import Slides from '@/components/Slides';
 import Card from '@/components/Card';
+import { useSeason } from '@/hooks/useSeason';
 
 export default function Home() {
-    const animes = [
-        {
-            id: 0,
-            tittle: 'Jujustu Kaisen 2nd Season',
-            image: 'https://areajugones.sport.es/wp-content/uploads/2023/03/jujutsu-kaisen-temporada-2.jpeg',
-            description: 'hola que pasa',
-            rating: 8,
-        },
-        {
-            id: 1,
-            tittle: 'Mushoku Tensei II: Isekai Ittara Honki Dasu',
-            image: 'https://static.bunnycdn.ru/i/cache/images/6/66/66f02ab78e1b850366ff56353c5f2073.jpg',
-            description: 'hola que pasa',
-            rating: 9,
-        },
-    ];
+    const { animes, isLoading } = useSeason();
 
     return (
         <div className='w-full h-full'>
             <div className='top'>
+                {isLoading && (
+                    <span className='text-xl font-bold text-white'>
+                        Cargando...
+                    </span>
+                )}
                 <Slides>
                     {animes.map((anime, index: number) => (
                         <SwiperSlide key={index}>
                             <Card
-                                title={anime.tittle}
-                                image={anime.image}
-                                description={anime.description}
+                                title={anime.title}
+                                image={anime.images.jpg.large_image_url}
+                                description={anime.synopsis}
+                                score={anime.score}
+                                type={anime.type}
+                                aired={anime.aired.string.substring(0, 11)}
                                 rating={anime.rating}
                             ></Card>
                         </SwiperSlide>

@@ -1,5 +1,12 @@
 import { AiFillPlayCircle } from 'react-icons/ai';
-import { BsFillBookmarkPlusFill } from 'react-icons/bs';
+import {
+    BsFillBookmarkPlusFill,
+    BsFillChatRightQuoteFill,
+    BsFillMicFill,
+    BsFillPlayFill,
+    BsFillStarFill,
+} from 'react-icons/bs';
+import { FaStopwatch } from 'react-icons/fa';
 import Button from './Button';
 
 type Props = {
@@ -7,10 +14,21 @@ type Props = {
     title?: string;
     image?: string;
     description?: string;
-    rating?: number;
+    score?: number | null;
+    type?: string;
+    aired?: string;
+    rating?: string | null;
 };
 
-const Card = ({ title, image, description, rating }: Props): JSX.Element => {
+const Card = ({
+    title,
+    image,
+    description,
+    score,
+    type,
+    aired,
+    rating,
+}: Props): JSX.Element => {
     return (
         <div className='h-fit w-full text-zinc-200 flex '>
             <div className='w-36 sm:w-48 lg:w-52'>
@@ -26,15 +44,46 @@ const Card = ({ title, image, description, rating }: Props): JSX.Element => {
                     backgroundImage: `url(${image})`,
                 }}
             >
-                <div className='grid grid-rows-3 md:grid-rows-4 backdrop-blur-lg bg-zinc-900/80 h-full px-4 text-zinc-300/75'>
-                    <h1 className='tittle text-sky-200/90 flex items-center text-base sm:text-lg lg:text-xl'>
+                <div className='grid grid-rows-3 md:grid-rows-4 backdrop-blur-lg bg-zinc-900/80 h-full px-4 text-zinc-300/80 w-full'>
+                    <div className='tittle text-sky-200/90 flex items-end text-base sm:text-lg lg:text-xl'>
                         {title}
-                    </h1>
-                    <h2 className='details'>rating: {rating}</h2>
-                    <div className='description hidden md:flex h-8'>
+                    </div>
+                    <div className='details flex items-center gap-3 text-sm lg:text-base xl:text-lg'>
+                        <div className='rating hidden sm:flex items-center gap-1'>
+                            <BsFillStarFill size={10} />
+                            {score}
+                        </div>
+                        <div className='category hidden sm:flex items-center gap-1'>
+                            <BsFillPlayFill size={14} />
+                            {type}
+                        </div>
+                        <div className='release hidden md:flex items-center gap-1'>
+                            <FaStopwatch size={13} />
+                            {aired}
+                        </div>
+                        <div className='rated hidden sm:flex items-center border-solid border-[1px] border-current px-1 h-5 text-[10px]'>
+                            {rating?.substring(0, 2)}
+                        </div>
+                        <div className='quality hidden sm:flex items-center bg-zinc-300/75 h-5 px-2 text-[11px] font-semibold text-black mix-blend-screen'>
+                            HD
+                        </div>
+                        <div className='nose flex text-xs h-5 items-center gap-[2px]'>
+                            <div className='bg-[#4c4c4c] h-full flex items-center px-1 gap-[2px] text-[10px]'>
+                                <BsFillChatRightQuoteFill size={11} />
+                                1096
+                            </div>
+                            <div className='bg-[#4c4c4c] h-5 flex items-center px-1 gap-[2px]'>
+                                <BsFillMicFill size={12} /> 20
+                            </div>
+                            <div className='bg-[#4c4c4c] h-5 xl:flex items-center px-1 gap-[2px] hidden'>
+                                ?
+                            </div>
+                        </div>
+                    </div>
+                    <div className='description hidden sm:flex h-12 md:h-14 text-xs md:text-sm text-ellipsis overflow-hidden text-justify -mt-2'>
                         {description}
                     </div>
-                    <div className='line-4 flex items-center '>
+                    <div className='line-4 flex items-center h-12'>
                         <div className='basis-10/12 flex space-x-2'>
                             <Button
                                 size='medium'
@@ -47,6 +96,7 @@ const Card = ({ title, image, description, rating }: Props): JSX.Element => {
                                 size='medium'
                                 appearance='gray'
                                 icon={<BsFillBookmarkPlusFill />}
+                                className='hidden sm:flex'
                             >
                                 <div>Bookmark</div>
                             </Button>
