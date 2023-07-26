@@ -8,6 +8,7 @@ import {
 } from 'react-icons/bs';
 import { FaStopwatch } from 'react-icons/fa';
 import Button from './Button';
+import Link from 'next/link';
 
 type Props = {
     id?: number;
@@ -21,6 +22,7 @@ type Props = {
 };
 
 const Card = ({
+    id,
     title,
     image,
     description,
@@ -85,13 +87,16 @@ const Card = ({
                     </div>
                     <div className='line-4 flex items-center h-12'>
                         <div className='basis-10/12 flex space-x-2'>
-                            <Button
-                                size='medium'
-                                appearance='blue'
-                                icon={<AiFillPlayCircle />}
-                            >
-                                <div>Watch Now</div>
-                            </Button>
+                            <Link href={'/anime/' + id}>
+                                <Button
+                                    size='medium'
+                                    appearance='blue'
+                                    icon={<AiFillPlayCircle />}
+                                >
+                                    <div>Watch Now</div>
+                                </Button>
+                            </Link>
+
                             <Button
                                 size='medium'
                                 appearance='gray'
