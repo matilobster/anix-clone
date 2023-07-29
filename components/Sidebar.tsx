@@ -4,10 +4,8 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
     return (
-        <div className='bg-zinc-800 h-full w-[319px] text-center'>
-            <div className='top flex justify-center items-center h-14'>
-                {children}
-            </div>
+        <div className='bg-[#202020] h-full w-[319px] p-4 space-y-3'>
+            {children}
         </div>
     );
 };

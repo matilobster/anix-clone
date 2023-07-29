@@ -7,7 +7,7 @@ import SearchBar from './SearchBar';
 
 const Header = () => {
     return (
-        <div className='h-12 xl:h-14 bg-zinc-800 py-2 flex items-center'>
+        <div className='h-12 xl:h-14 bg-[#191919] py-2 flex items-center sticky top-0 z-40 shadow-lg shadow-[#151515]'>
             <div className='px-4 w-full max-w-[1270px] mx-auto flex flex-row'>
                 <div className='left-div basis-9/12 sm:basis-10/12 flex'>
                     <div className='basis-1/2 md:basis-3/12 flex gap-1 items-center'>
