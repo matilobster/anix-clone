@@ -32,7 +32,7 @@ const Slides: React.FC<SlideProps> = ({ children }): JSX.Element => {
                 className='relative z-0'
             >
                 {children}
-                <div className='flex justify-end absolute z-10 bottom-0 right-2 '>
+                <div className='absolute bottom-0 right-2 z-10 flex justify-end '>
                     <SwiperNavButton></SwiperNavButton>
                 </div>
             </Swiper>

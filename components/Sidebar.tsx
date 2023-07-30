@@ -4,7 +4,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
     return (
-        <div className='bg-[#202020] h-full w-[319px] p-4 space-y-3'>
+        <div className='h-full w-[319px] space-y-3 bg-[#202020] p-4'>
             {children}
         </div>
     );

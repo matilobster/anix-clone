@@ -17,8 +17,8 @@ export default function Home() {
     const { animes: top10, isLoading } = top10Season();
 
     return (
-        <div className='w-full h-full flex gap-3'>
-            <div className='left-content w-full xl:w-[907px] xl:basis-10/12 mx-auto'>
+        <div className='flex h-full w-full gap-3'>
+            <div className='left-content mx-auto w-full xl:w-[907px] xl:basis-10/12'>
                 <div className='top h-40'>
                     {isLoading ? (
                         <Loading></Loading>
@@ -35,7 +35,7 @@ export default function Home() {
                                         type={anime.type}
                                         aired={anime.aired.string.substring(
                                             0,
-                                            11
+                                            11,
                                         )}
                                         rating={anime.rating}
                                     ></Card>
@@ -59,7 +59,7 @@ export default function Home() {
                     <div className=''>chao</div>
                 </div> */}
             </div>
-            <div className='right-content xl:basis-2/12 hidden xl:flex'>
+            <div className='right-content hidden xl:flex xl:basis-2/12'>
                 <Sidebar>Most viewed</Sidebar>
             </div>
         </div>

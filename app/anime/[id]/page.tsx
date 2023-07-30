@@ -34,27 +34,27 @@ function anime({ params }: { params: { id: number } }) {
     }
 
     return (
-        <div className='w-full h-full flex gap-3'>
-            <div className='left-content w-full xl:w-[907px] xl:basis-10/12 mx-auto'>
-                <div className='trailer-image w-full aspect-video flex justify-center'>
+        <div className='flex h-full w-full gap-3'>
+            <div className='left-content mx-auto w-full xl:w-[907px] xl:basis-10/12'>
+                <div className='trailer-image flex aspect-video w-full justify-center'>
                     {isLoading ? (
                         <Loading></Loading>
                     ) : (
-                        <div className='trailer-image w-full aspect-video flex justify-center'>
+                        <div className='trailer-image flex aspect-video w-full justify-center'>
                             {trailer ? (
                                 <iframe
-                                    className='w-full h-full'
+                                    className='h-full w-full'
                                     src={trailer}
                                     title={anime?.title}
                                     allowFullScreen
                                     rel='1'
                                 ></iframe>
                             ) : (
-                                <div className='image w-full aspect-video flex justify-center items-center '>
+                                <div className='image flex aspect-video w-full items-center justify-center '>
                                     <img
                                         src={image}
                                         alt='no-image'
-                                        className='object-contain h-full'
+                                        className='h-full object-contain'
                                     />
                                 </div>
                             )}
@@ -62,7 +62,7 @@ function anime({ params }: { params: { id: number } }) {
                     )}
                 </div>
             </div>
-            <div className='right-content xl:basis-2/12 hidden xl:flex'>
+            <div className='right-content hidden xl:flex xl:basis-2/12'>
                 <AnimeSidebar>
                     <div className='img flex justify-center pb-1'>
                         <img
@@ -74,68 +74,68 @@ function anime({ params }: { params: { id: number } }) {
                     <div className='tittle text-lg font-normal'>
                         {anime?.title}
                     </div>
-                    <div className='nose py-2 flex items-center'>
+                    <div className='nose flex items-center py-2'>
                         <div className='flex items-center gap-2'>
-                            <div className='rated hidden sm:flex items-center bg-white px-2 h-5 text-[12px] font-semibold text-black mix-blend-screen'>
+                            <div className='rated hidden h-5 items-center bg-white px-2 text-[12px] font-semibold text-black mix-blend-screen sm:flex'>
                                 {anime?.rating?.substring(0, 2)}
                             </div>
-                            <div className='quality flex justify-center items-center bg-ani-blue h-5 px-2 text-xs font-semibold text-black mix-blend-screen'>
+                            <div className='quality flex h-5 items-center justify-center bg-ani-blue px-2 text-xs font-semibold text-black mix-blend-screen'>
                                 HD
                             </div>
-                            <div className='nose flex text-xs h-5 items-center gap-[2px]'>
-                                <div className='bg-[#4c4c4c] text-zinc-300/75 h-full flex items-center px-1 gap-[2px] text-[10px]'>
+                            <div className='nose flex h-5 items-center gap-[2px] text-xs'>
+                                <div className='flex h-full items-center gap-[2px] bg-[#4c4c4c] px-1 text-[10px] text-zinc-300/75'>
                                     <BsFillChatRightQuoteFill size={11} />4
                                 </div>
-                                <div className='bg-[#4c4c4c] text-zinc-300/75 h-5 flex items-center px-1 gap-[2px]'>
+                                <div className='flex h-5 items-center gap-[2px] bg-[#4c4c4c] px-1 text-zinc-300/75'>
                                     <BsFillMicFill size={12} /> 2
                                 </div>
-                                <div className='bg-[#4c4c4c] text-zinc-300/75 h-5 items-center px-1 gap-[2px]'>
+                                <div className='h-5 items-center gap-[2px] bg-[#4c4c4c] px-1 text-zinc-300/75'>
                                     23
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className='description text-[12px] pb-2 text-zinc-400/70 space-y-2'>
+                    <div className='description space-y-2 pb-2 text-[12px] text-zinc-400/70'>
                         <div
                             className={twMerge(
                                 'h-fit text-ellipsis',
                                 toggle
                                     ? 'max-h-14 overflow-hidden'
-                                    : 'max-h-36 overflow-scroll'
+                                    : 'max-h-36 overflow-scroll',
                             )}
                         >
                             {anime?.synopsis}
                         </div>
                         <button
-                            className='button bg-zinc-700 py-1 px-2 w-fit hover:bg-zinc-600 hover:text-ani-blue transition duration-100'
+                            className='button w-fit bg-zinc-700 px-2 py-1 transition duration-100 hover:bg-zinc-600 hover:text-ani-blue'
                             onClick={() => setToggle(!toggle)}
                         >
                             {toggle ? 'view all' : 'view less'}
                         </button>
                     </div>
-                    <div className='details h-40 hover:h-fit text-[12px] font-medium space-y-2 pb-3 relative '>
-                        <div className='absolute hover:relative bg-[#202020] z-10 hover:z-50 w-full h-40 hover:h-fit space-y-2 overflow-hidden opacity-50 hover:opacity-100'>
+                    <div className='details relative h-40 space-y-2 pb-3 text-[12px] font-medium hover:h-fit '>
+                        <div className='absolute z-10 h-40 w-full space-y-2 overflow-hidden bg-[#202020] opacity-50 hover:relative hover:z-50 hover:h-fit hover:opacity-100'>
                             <div className='flex'>
                                 <div className='w-24'>Type:</div>
-                                <div className='text-ani-blue capitalize'>
+                                <div className='capitalize text-ani-blue'>
                                     {anime?.type}
                                 </div>
                             </div>
                             <div className='flex'>
                                 <div className='w-24'>Country:</div>
-                                <div className='text-ani-blue capitalize'>
+                                <div className='capitalize text-ani-blue'>
                                     Japan
                                 </div>
                             </div>
                             <div className='flex'>
                                 <div className='w-24'>Premiered:</div>
-                                <div className='text-ani-blue capitalize'>
+                                <div className='capitalize text-ani-blue'>
                                     {anime?.season} {anime?.year}
                                 </div>
                             </div>
                             <div className='flex'>
                                 <div className='w-24'>Genre:</div>
-                                <div className='text-ani-blue capitalize'>
+                                <div className='capitalize text-ani-blue'>
                                     {anime?.genres.map((genre, i) => (
                                         <Link
                                             key={i}
@@ -176,7 +176,7 @@ function anime({ params }: { params: { id: number } }) {
                             </div>
                             <div className='flex'>
                                 <div className='w-24'>Studios:</div>
-                                <div className='text-ani-blue capitalize'>
+                                <div className='capitalize text-ani-blue'>
                                     {anime?.studios.map((studio, i) => (
                                         <Link
                                             key={i}
@@ -193,7 +193,7 @@ function anime({ params }: { params: { id: number } }) {
                             </div>
                             <div className='flex'>
                                 <div className='w-24'>Producers:</div>
-                                <div className='text-ani-blue capitalize w-44'>
+                                <div className='w-44 capitalize text-ani-blue'>
                                     {anime?.producers.map((producer, i) => (
                                         <Link
                                             key={i}
@@ -209,11 +209,11 @@ function anime({ params }: { params: { id: number } }) {
                                 </div>
                             </div>
                         </div>
-                        <div className='absolute z-20 hover:z-0 inset-y-0 w-full h-full bg-gradient-to-t from-[#202020] from-25% '></div>
+                        <div className='absolute inset-y-0 z-20 h-full w-full bg-gradient-to-t from-[#202020] from-25% hover:z-0 '></div>
                     </div>
                     <div className='stars h-36 bg-zinc-900/60 p-4'>
                         <div className='score'>
-                            <div className='flex items-center gap-1 text-[14px] relative'>
+                            <div className='relative flex items-center gap-1 text-[14px]'>
                                 <BsFillStarFill
                                     size={12}
                                     className='text-yellow-500'

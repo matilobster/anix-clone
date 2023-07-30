@@ -47,10 +47,10 @@ Props): JSX.Element => {
     const button = (
         <Component
             className={twMerge(
-                'rounded-sm flex justify-center items-center min-w-0 h-9',
+                'flex h-9 min-w-0 items-center justify-center rounded-sm',
                 // clonedIcon && children ? 'justify-start' : 'justify-center',
                 block && children ? 'w-full' : null,
-                disabled ? 'opacity-50 cursor-not-allowed' : null,
+                disabled ? 'cursor-not-allowed opacity-50' : null,
                 buttonBackgroundByAppearanceProp[appearance],
                 disabled
                     ? buttonBackgroundDisabledByAppearanceProp[appearance]
@@ -66,7 +66,7 @@ Props): JSX.Element => {
                     : null,
                 textColorByAppearanceProp[appearance],
                 borderByAppearanceProp[appearance],
-                className
+                className,
             )}
             onClick={(e) => {
                 disabled ? e.preventDefault() : onClick && onClick();
@@ -80,7 +80,7 @@ Props): JSX.Element => {
                     className={twMerge(
                         'truncate',
                         textSizeBySizeProp[size],
-                        textWeightBySizeProp[size]
+                        textWeightBySizeProp[size],
                     )}
                 >
                     {children}

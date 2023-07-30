@@ -32,61 +32,61 @@ const Card = ({
     rating,
 }: Props): JSX.Element => {
     return (
-        <div className='h-fit w-full text-zinc-200 flex '>
+        <div className='flex h-fit w-full text-zinc-200 '>
             <div className='w-36 sm:w-48 lg:w-52'>
                 <img
                     src={image}
                     alt='jujutsu'
-                    className='object-contain min-w-[104px]'
+                    className='min-w-[104px] object-contain'
                 />
             </div>
             <div
-                className={`w-full relative bg-center bg-cover min-h-full`}
+                className={`relative min-h-full w-full bg-cover bg-center`}
                 style={{
                     backgroundImage: `url(${image})`,
                 }}
             >
-                <div className='grid grid-rows-3 md:grid-rows-4 backdrop-blur-lg bg-zinc-900/80 h-full px-4 text-zinc-300/80 w-full'>
-                    <div className='tittle text-sky-200/90 flex items-end text-base sm:text-lg lg:text-xl'>
+                <div className='grid h-full w-full grid-rows-3 bg-zinc-900/80 px-4 text-zinc-300/80 backdrop-blur-lg md:grid-rows-4'>
+                    <div className='tittle flex items-end text-base text-sky-200/90 sm:text-lg lg:text-xl'>
                         {title}
                     </div>
                     <div className='details flex items-center gap-3 text-sm lg:text-base xl:text-lg'>
-                        <div className='rating hidden sm:flex items-center gap-1'>
+                        <div className='rating hidden items-center gap-1 sm:flex'>
                             <BsFillStarFill size={10} />
                             {score}
                         </div>
-                        <div className='category hidden sm:flex items-center gap-1'>
+                        <div className='category hidden items-center gap-1 sm:flex'>
                             <BsFillPlayFill size={14} />
                             {type}
                         </div>
-                        <div className='release hidden md:flex items-center gap-1'>
+                        <div className='release hidden items-center gap-1 md:flex'>
                             <FaStopwatch size={13} />
                             {aired}
                         </div>
-                        <div className='rated hidden sm:flex items-center border-solid border-[1px] border-current px-1 h-5 text-[10px]'>
+                        <div className='rated hidden h-5 items-center border-[1px] border-solid border-current px-1 text-[10px] sm:flex'>
                             {rating?.substring(0, 2)}
                         </div>
-                        <div className='quality hidden sm:flex items-center bg-zinc-300/75 h-5 px-2 text-[11px] font-semibold text-black mix-blend-screen'>
+                        <div className='quality hidden h-5 items-center bg-zinc-300/75 px-2 text-[11px] font-semibold text-black mix-blend-screen sm:flex'>
                             HD
                         </div>
-                        <div className='nose flex text-xs h-5 items-center gap-[2px]'>
-                            <div className='bg-[#4c4c4c] h-full flex items-center px-1 gap-[2px] text-[10px]'>
+                        <div className='nose flex h-5 items-center gap-[2px] text-xs'>
+                            <div className='flex h-full items-center gap-[2px] bg-[#4c4c4c] px-1 text-[10px]'>
                                 <BsFillChatRightQuoteFill size={11} />
                                 1096
                             </div>
-                            <div className='bg-[#4c4c4c] h-5 flex items-center px-1 gap-[2px]'>
+                            <div className='flex h-5 items-center gap-[2px] bg-[#4c4c4c] px-1'>
                                 <BsFillMicFill size={12} /> 20
                             </div>
-                            <div className='bg-[#4c4c4c] h-5 xl:flex items-center px-1 gap-[2px] hidden'>
+                            <div className='hidden h-5 items-center gap-[2px] bg-[#4c4c4c] px-1 xl:flex'>
                                 ?
                             </div>
                         </div>
                     </div>
-                    <div className='description hidden sm:flex h-12 md:h-14 text-xs md:text-sm text-ellipsis overflow-hidden text-justify -mt-2'>
+                    <div className='description -mt-2 hidden h-12 overflow-hidden text-ellipsis text-justify text-xs sm:flex md:h-14 md:text-sm'>
                         {description}
                     </div>
-                    <div className='line-4 flex items-center h-12'>
-                        <div className='basis-10/12 flex space-x-2'>
+                    <div className='line-4 flex h-12 items-center'>
+                        <div className='flex basis-10/12 space-x-2'>
                             <Link href={'/anime/' + id}>
                                 <Button
                                     size='medium'

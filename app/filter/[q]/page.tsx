@@ -12,8 +12,8 @@ export default function Filter({ params }: { params: { q: string } }) {
     // console.log(animes);
 
     return (
-        <div className='w-full h-full flex gap-3'>
-            <div className='left-content w-full xl:w-[907px] xl:basis-10/12 mx-auto'>
+        <div className='flex h-full w-full gap-3'>
+            <div className='left-content mx-auto w-full xl:w-[907px] xl:basis-10/12'>
                 <div className='top'>
                     {isLoading ? (
                         <Loading></Loading>
@@ -36,7 +36,7 @@ export default function Filter({ params }: { params: { q: string } }) {
                     )}
                 </div>
             </div>
-            <div className='right-content xl:basis-2/12 hidden xl:flex'>
+            <div className='right-content hidden bg-white xl:flex xl:basis-2/12'>
                 <Sidebar>Most viewed</Sidebar>
             </div>
         </div>
