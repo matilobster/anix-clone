@@ -153,3 +153,8 @@ export interface Items {
     total: number;
     per_page: number;
 }
+
+export interface Producer {
+    id: number;
+    name: string;
+}

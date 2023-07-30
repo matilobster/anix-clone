@@ -9,7 +9,7 @@ export default function Filter({ params }: { params: { q: string } }) {
     const keyword = params.q;
 
     const { animes, isLoading } = useFilter(keyword);
-    console.log(animes);
+    // console.log(animes);
 
     return (
         <div className='w-full h-full flex gap-3'>

@@ -44,6 +44,20 @@ export default function Home() {
                         </Slides>
                     )}
                 </div>
+                {/* <div className=' h-fit w-full '>
+                    <div className=''>hola</div>
+                    <div className=''>
+                        <div className='w-full h-40 hover:h-fit relative'>
+                            <div className='bg-[#191919]]w-full h-40 hover:h-fit absolute hover:relative z-10 hover:z-50 overflow-hidden'>
+                                <Link href={'/studio/569/mappa'}>
+                                    <div className=' h-96'>mappa</div>
+                                </Link>
+                            </div>
+                            <div className='bg-gradient-to-t from-[#191919] w-full h-full absolute z-20 hover:z-0 '></div>
+                        </div>
+                    </div>
+                    <div className=''>chao</div>
+                </div> */}
             </div>
             <div className='right-content xl:basis-2/12 hidden xl:flex'>
                 <Sidebar>Most viewed</Sidebar>

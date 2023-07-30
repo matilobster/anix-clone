@@ -9,9 +9,13 @@ import {
     BsFillMicFill,
     BsFillStarFill,
 } from 'react-icons/bs';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 function anime({ params }: { params: { id: number } }) {
     const { anime, isLoading } = useAnime(params.id);
+
+    const router = useRouter();
 
     let trailer = null;
     let image = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
@@ -39,7 +43,6 @@ function anime({ params }: { params: { id: number } }) {
                                     className='w-full h-full'
                                     src={trailer}
                                     title={anime?.title}
-                                    allow='clipboard-write; encrypted-media; gyroscope;'
                                     allowFullScreen
                                     rel='1'
                                 ></iframe>
@@ -89,7 +92,7 @@ function anime({ params }: { params: { id: number } }) {
                             </div>
                         </div>
                     </div>
-                    <div className='description text-[12px] pb-2  text-zinc-400/70 space-y-2'>
+                    <div className='description text-[12px] pb-2 text-zinc-400/70 space-y-2'>
                         <div className='h-8 hover:h-fit text-ellipsis overflow-hidden'>
                             {anime?.synopsis}
                         </div>
@@ -98,8 +101,8 @@ function anime({ params }: { params: { id: number } }) {
                             view all
                         </div>
                     </div>
-                    <div className='details h-40 hover:h-fit text-[12px] font-medium space-y-2 pb-3 overflow-hidden relative opacity-50 hover:opacity-100'>
-                        <div className='z-10 hover:z-30 h-full w-full space-y-2'>
+                    <div className='details h-40 hover:h-fit text-[12px] font-medium space-y-2 pb-3 relative '>
+                        <div className='absolute hover:relative bg-[#202020] z-10 hover:z-50 w-full h-40 hover:h-fit space-y-2 overflow-hidden opacity-50 hover:opacity-100'>
                             <div className='flex'>
                                 <div className='w-24'>Type:</div>
                                 <div className='text-ani-blue capitalize'>
@@ -122,9 +125,16 @@ function anime({ params }: { params: { id: number } }) {
                                 <div className='w-24'>Genre:</div>
                                 <div className='text-ani-blue capitalize'>
                                     {anime?.genres.map((genre, i) => (
-                                        <span key={i}>
+                                        <Link
+                                            key={i}
+                                            href={`/genre/${
+                                                genre.mal_id
+                                            }/${genre.name
+                                                .replace(/ /g, '-')
+                                                .toLowerCase()}`}
+                                        >
                                             {(i ? ', ' : '') + genre.name}
-                                        </span>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
@@ -156,9 +166,16 @@ function anime({ params }: { params: { id: number } }) {
                                 <div className='w-24'>Studios:</div>
                                 <div className='text-ani-blue capitalize'>
                                     {anime?.studios.map((studio, i) => (
-                                        <span key={i}>
+                                        <Link
+                                            key={i}
+                                            href={`/studio/${
+                                                studio.mal_id
+                                            }/${studio.name
+                                                .replace(/ /g, '-')
+                                                .toLowerCase()}`}
+                                        >
                                             {(i ? ', ' : '') + studio.name}
-                                        </span>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
@@ -166,14 +183,21 @@ function anime({ params }: { params: { id: number } }) {
                                 <div className='w-24'>Producers:</div>
                                 <div className='text-ani-blue capitalize w-44'>
                                     {anime?.producers.map((producer, i) => (
-                                        <span key={i}>
+                                        <Link
+                                            key={i}
+                                            href={`/producer/${
+                                                producer.mal_id
+                                            }/${producer.name
+                                                .replace(/ /g, '-')
+                                                .toLowerCase()}`}
+                                        >
                                             {(i ? ', ' : '') + producer.name}
-                                        </span>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
                         </div>
-                        <div className='absolute z-20 hover:opacity-0 hover:z-0 h-full w-full inset-y-0 left-0 bg-gradient-to-t from-[#202020] from-25%'></div>
+                        <div className='absolute z-20 hover:z-0 inset-y-0 w-full h-full bg-gradient-to-t from-[#202020] from-25% '></div>
                     </div>
                     <div className='stars h-36 bg-zinc-900/60 p-4'>
                         <div className='score'>
