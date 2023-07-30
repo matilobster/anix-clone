@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useAnime } from '@/hooks/useAnime';
 import Loading from '@/components/Loading';
 import AnimeSidebar from '@/components/AnimeSidebar';
@@ -11,6 +11,7 @@ import {
 } from 'react-icons/bs';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { twMerge } from 'tailwind-merge';
 
 function anime({ params }: { params: { id: number } }) {
     const { anime, isLoading } = useAnime(params.id);
@@ -19,6 +20,8 @@ function anime({ params }: { params: { id: number } }) {
 
     let trailer = null;
     let image = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
+
+    const [toggle, setToggle] = useState<boolean>(true);
 
     if (anime?.trailer.youtube_id) {
         trailer =
@@ -93,13 +96,22 @@ function anime({ params }: { params: { id: number } }) {
                         </div>
                     </div>
                     <div className='description text-[12px] pb-2 text-zinc-400/70 space-y-2'>
-                        <div className='h-8 hover:h-fit text-ellipsis overflow-hidden'>
+                        <div
+                            className={twMerge(
+                                'h-fit text-ellipsis',
+                                toggle
+                                    ? 'max-h-14 overflow-hidden'
+                                    : 'max-h-36 overflow-scroll'
+                            )}
+                        >
                             {anime?.synopsis}
                         </div>
-
-                        <div className='button bg-zinc-700 py-1 px-2 w-fit'>
-                            view all
-                        </div>
+                        <button
+                            className='button bg-zinc-700 py-1 px-2 w-fit hover:bg-zinc-600 hover:text-ani-blue transition duration-100'
+                            onClick={() => setToggle(!toggle)}
+                        >
+                            {toggle ? 'view all' : 'view less'}
+                        </button>
                     </div>
                     <div className='details h-40 hover:h-fit text-[12px] font-medium space-y-2 pb-3 relative '>
                         <div className='absolute hover:relative bg-[#202020] z-10 hover:z-50 w-full h-40 hover:h-fit space-y-2 overflow-hidden opacity-50 hover:opacity-100'>

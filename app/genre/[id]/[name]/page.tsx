@@ -9,13 +9,14 @@ export default function Filter({
 }: {
     params: { id: string; name: string };
 }) {
+    const name = params.name.replace(/-/g, ' ');
     const { animes, isLoading } = useProducer(params.id);
 
     return (
         <div className='w-full h-full flex gap-3'>
             <div className='left-content w-full xl:w-[907px] xl:basis-10/12 mx-auto'>
-                <div className='top'>
-                    Animes by <span className='capitalize'>{params.name}</span>
+                <div className='top h-12  text-ani-blue font-semibold text-xl'>
+                    <span className='capitalize'>{name}</span> Anime
                 </div>
                 <div>
                     {animes.map((anime, index: number) => (
