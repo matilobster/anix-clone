@@ -1,18 +1,10 @@
-import { AiFillPlayCircle } from 'react-icons/ai';
-import {
-    BsFillBookmarkPlusFill,
-    BsFillChatRightQuoteFill,
-    BsFillMicFill,
-    BsFillPlayFill,
-    BsFillStarFill,
-} from 'react-icons/bs';
-import { FaStopwatch } from 'react-icons/fa';
-import Button from './Button';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { BiPlay } from 'react-icons/bi';
 
 type Props = {
-    id?: number;
+    id: number;
     title?: string;
     image: string;
     description?: string;
@@ -32,8 +24,21 @@ const Card = ({
     aired,
     rating,
 }: Props): JSX.Element => {
+    const router = useRouter();
+
     return (
         <div className='relative h-full transition duration-200 hover:scale-[0.98]'>
+            <div className='absolute z-20 flex h-full w-full items-center justify-center'>
+                <button
+                    className='group -mt-12 flex h-full w-full items-center justify-center'
+                    onClick={() => router.push('/anime/' + id)}
+                >
+                    <BiPlay
+                        size={200}
+                        className='opacity-0 transition duration-300 group-hover:scale-[0.4] group-hover:opacity-100'
+                    ></BiPlay>
+                </button>
+            </div>
             <div className='relative h-4/5 w-full'>
                 <Image
                     className='absolute z-0'
@@ -44,6 +49,7 @@ const Card = ({
                     objectPosition='center'
                     alt='img'
                 ></Image>
+
                 <div className='absolute bottom-0 z-10 flex h-1/2 w-full items-end bg-gradient-to-t from-[#202020] from-25%'>
                     <div className='flex w-full justify-center pb-5'>cc</div>
                 </div>

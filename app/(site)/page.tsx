@@ -14,6 +14,7 @@ import Loading from '@/components/Loading';
 import { top10Season } from '@/hooks/useTop10Season';
 import Card from '@/components/Card';
 import AnimesGrid from '@/components/AnimesGrid';
+import { BiPlay } from 'react-icons/bi';
 
 export default function Home() {
     const { animes: top10, isLoading } = top10Season();
@@ -60,6 +61,7 @@ export default function Home() {
                     )}
                 </div>
             </div>
+
             <div className='right-content hidden xl:flex xl:basis-2/12'>
                 <Sidebar>Most viewed</Sidebar>
             </div>
