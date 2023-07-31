@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { BiPlay } from 'react-icons/bi';
@@ -7,10 +6,8 @@ type Props = {
     id: number;
     title?: string;
     image: string;
-    description?: string;
     score?: number | null;
     type?: string;
-    aired?: string;
     rating?: string | null;
 };
 
@@ -18,10 +15,8 @@ const Card = ({
     id,
     title,
     image,
-    description,
     score,
     type,
-    aired,
     rating,
 }: Props): JSX.Element => {
     const router = useRouter();

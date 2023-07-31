@@ -43,7 +43,7 @@ export const getAnimeByID = async (id: number) => {
 };
 
 export const getAnimeSearch = async (keyword: string) => {
-    const url = 'https://api.jikan.moe/v4/anime?type=tv&q=' + keyword;
+    const url = 'https://api.jikan.moe/v4/anime?limit=18&type=tv&q=' + keyword;
     const options = {
         method: 'GET',
         headers: {
@@ -65,7 +65,7 @@ export const getAnimeSearch = async (keyword: string) => {
 
 export const getAnimeByProducer = async (keyword: string) => {
     const url =
-        'https://api.jikan.moe/v4/anime?order_by=popularity&producer=' +
+        'https://api.jikan.moe/v4/anime?limit=18&order_by=popularity&producer=' +
         keyword;
     const options = {
         method: 'GET',
