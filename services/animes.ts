@@ -1,7 +1,7 @@
 import { Animes, IdResponse } from '../types/types';
 
 export const getTop10Season = async () => {
-    const url = 'https://api.jikan.moe/v4/seasons/now?limit=10&filter=tv';
+    const url = 'https://api.jikan.moe/v4/seasons/now?limit=18&filter=tv';
     const options = {
         method: 'GET',
         headers: {

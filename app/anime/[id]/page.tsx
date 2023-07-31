@@ -10,6 +10,8 @@ import {
     BsFillStarFill,
 } from 'react-icons/bs';
 import Link from 'next/link';
+import Image from 'next/image';
+
 import { useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
 
@@ -19,7 +21,7 @@ function anime({ params }: { params: { id: number } }) {
     const router = useRouter();
 
     let trailer = null;
-    let image = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
+    let image = 'https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png';
 
     const [toggle, setToggle] = useState<boolean>(true);
 
@@ -65,11 +67,15 @@ function anime({ params }: { params: { id: number } }) {
             <div className='right-content hidden xl:flex xl:basis-2/12'>
                 <AnimeSidebar>
                     <div className='img flex justify-center pb-1'>
-                        <img
+                        <Image
                             src={image}
-                            alt='sidebar-image'
-                            className='h-[336px]'
-                        />
+                            loader={() => image}
+                            height={330}
+                            width={232}
+                            alt='siebar-image'
+                            priority={true}
+                            quality={90}
+                        ></Image>
                     </div>
                     <div className='tittle text-lg font-normal'>
                         {anime?.title}
@@ -100,8 +106,8 @@ function anime({ params }: { params: { id: number } }) {
                             className={twMerge(
                                 'h-fit text-ellipsis',
                                 toggle
-                                    ? 'max-h-14 overflow-hidden'
-                                    : 'max-h-36 overflow-scroll',
+                                    ? 'line-clamp-3 '
+                                    : 'line-clamp-none max-h-36 overflow-scroll',
                             )}
                         >
                             {anime?.synopsis}

@@ -7,7 +7,7 @@ type Props = {
 const Container = ({ children }: Props): JSX.Element => {
     return (
         <div
-            className={`mx-auto flex h-full w-full max-w-[1270px] flex-row p-4`}
+            className={`mx-auto flex h-full w-full max-w-[1304px] flex-row p-4`}
         >
             {children ? children : <></>}
         </div>

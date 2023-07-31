@@ -1,6 +1,6 @@
 'use client';
 
-import Card from '@/components/Card';
+import Card from '@/components/SlideCard';
 import Loading from '@/components/Loading';
 import Sidebar from '@/components/Sidebar';
 import { useFilter } from '@/hooks/useFilter';

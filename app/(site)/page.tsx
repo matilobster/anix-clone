@@ -8,25 +8,27 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import Slides from '@/components/Slides';
-import Card from '@/components/Card';
+import SlideCard from '@/components/SlideCard';
 import Sidebar from '@/components/Sidebar';
 import Loading from '@/components/Loading';
 import { top10Season } from '@/hooks/useTop10Season';
+import Card from '@/components/Card';
+import AnimesGrid from '@/components/AnimesGrid';
 
 export default function Home() {
     const { animes: top10, isLoading } = top10Season();
 
     return (
         <div className='flex h-full w-full gap-3'>
-            <div className='left-content mx-auto w-full xl:w-[907px] xl:basis-10/12'>
-                <div className='top h-40'>
+            <div className='left-content mx-auto w-full space-y-4 xl:w-[907px] xl:basis-10/12'>
+                <div className='top h-fit pb-10'>
                     {isLoading ? (
                         <Loading></Loading>
                     ) : (
                         <Slides>
                             {top10.map((anime, index: number) => (
                                 <SwiperSlide key={index}>
-                                    <Card
+                                    <SlideCard
                                         id={anime.mal_id}
                                         title={anime.title}
                                         image={anime.images.jpg.large_image_url}
@@ -38,26 +40,25 @@ export default function Home() {
                                             11,
                                         )}
                                         rating={anime.rating}
-                                    ></Card>
+                                    ></SlideCard>
                                 </SwiperSlide>
                             ))}
                         </Slides>
                     )}
                 </div>
-                {/* <div className=' h-fit w-full '>
-                    <div className=''>hola</div>
-                    <div className=''>
-                        <div className='w-full h-40 hover:h-fit relative'>
-                            <div className='bg-[#191919]]w-full h-40 hover:h-fit absolute hover:relative z-10 hover:z-50 overflow-hidden'>
-                                <Link href={'/studio/569/mappa'}>
-                                    <div className=' h-96'>mappa</div>
-                                </Link>
-                            </div>
-                            <div className='bg-gradient-to-t from-[#191919] w-full h-full absolute z-20 hover:z-0 '></div>
+                <div className='mid'>
+                    <div>
+                        <div className='text-xl font-normal text-ani-blue'>
+                            Recent Update
+                            <hr className='h-px border-0 bg-ani-gray' />
                         </div>
                     </div>
-                    <div className=''>chao</div>
-                </div> */}
+                    {isLoading ? (
+                        <Loading></Loading>
+                    ) : (
+                        <AnimesGrid animes={top10}></AnimesGrid>
+                    )}
+                </div>
             </div>
             <div className='right-content hidden xl:flex xl:basis-2/12'>
                 <Sidebar>Most viewed</Sidebar>

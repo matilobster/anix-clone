@@ -1,6 +1,6 @@
 'use client';
 
-import Card from '@/components/Card';
+import Card from '@/components/SlideCard';
 import Sidebar from '@/components/Sidebar';
 import { useProducer } from '@/hooks/useProducer';
 
