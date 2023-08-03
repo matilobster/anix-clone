@@ -1,6 +1,5 @@
 'use client';
 
-import Card from '@/components/SlideCard';
 import Loading from '@/components/Loading';
 import Sidebar from '@/components/Sidebar';
 import { useFilter } from '@/hooks/useFilter';
@@ -10,7 +9,6 @@ export default function Filter({ params }: { params: { q: string } }) {
     const keyword = params.q;
 
     const { animes, isLoading } = useFilter(keyword);
-    // console.log(animes);
 
     return (
         <div className='flex h-full w-full gap-3'>

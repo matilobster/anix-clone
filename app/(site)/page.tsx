@@ -61,7 +61,11 @@ export default function Home() {
             </div>
 
             <div className='right-content hidden xl:flex xl:basis-2/12'>
-                <Sidebar>Most viewed</Sidebar>
+                <Sidebar>
+                    <div className='flex w-full justify-center'>
+                        Most Viewed
+                    </div>
+                </Sidebar>
             </div>
         </div>
     );
