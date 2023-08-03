@@ -24,7 +24,7 @@ const Header = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className='invisible flex basis-1/2 items-center md:visible md:-ml-4 md:basis-9/12'>
+                    <div className='invisible flex basis-1/2 items-center md:visible md:-ml-2 md:basis-9/12'>
                         <SearchBar></SearchBar>
                     </div>
                 </div>

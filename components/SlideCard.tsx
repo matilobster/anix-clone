@@ -46,8 +46,8 @@ const SlideCard = ({
                     backgroundImage: `url(${image})`,
                 }}
             >
-                <div className='grid h-full w-full grid-rows-3 bg-zinc-900/80 px-4 text-zinc-300/80 backdrop-blur-lg md:grid-rows-4'>
-                    <div className='tittle flex items-end text-base text-sky-200/90 sm:text-lg lg:text-xl'>
+                <div className='grid h-full w-full min-w-[252px] grid-rows-3 bg-zinc-900/80 px-4 text-zinc-300/80 backdrop-blur-lg md:grid-rows-4'>
+                    <div className='tittle line-clamp-2 flex items-end text-base text-sky-200/90 sm:text-lg lg:text-xl'>
                         {title}
                     </div>
                     <div className='details flex items-center gap-3 text-sm lg:text-base xl:text-lg'>

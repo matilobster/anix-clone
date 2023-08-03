@@ -27,7 +27,7 @@ function anime({ params }: { params: { id: number } }) {
 
     if (anime?.trailer.youtube_id) {
         trailer =
-            'http://www.youtube.com/embed/' +
+            'https://www.youtube.com/embed/' +
             anime?.trailer.youtube_id +
             '/?enablejsapi=1&wmode=opque&autoplay=0&modestbranding=1&showinfo=0&modestbranding=1';
     }
@@ -141,7 +141,7 @@ function anime({ params }: { params: { id: number } }) {
                             </div>
                             <div className='flex'>
                                 <div className='w-24'>Genre:</div>
-                                <div className='capitalize text-ani-blue'>
+                                <div className='w-44 capitalize text-ani-blue'>
                                     {anime?.genres.map((genre, i) => (
                                         <Link
                                             key={i}
@@ -182,7 +182,7 @@ function anime({ params }: { params: { id: number } }) {
                             </div>
                             <div className='flex'>
                                 <div className='w-24'>Studios:</div>
-                                <div className='capitalize text-ani-blue'>
+                                <div className='w-44 capitalize text-ani-blue'>
                                     {anime?.studios.map((studio, i) => (
                                         <Link
                                             key={i}

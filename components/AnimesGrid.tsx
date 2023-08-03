@@ -7,7 +7,7 @@ interface AnimesGridProps {
 
 const AnimesGrid: React.FC<AnimesGridProps> = ({ animes }) => {
     return (
-        <div className='my-3 grid aspect-[1/8] w-full grid-cols-2 gap-[6px] min-[478px]:aspect-[3/10] min-[478px]:grid-cols-3 md:aspect-[1/2] md:grid-cols-4 lg:aspect-[40/37] lg:grid-cols-6'>
+        <div className='my-3 grid w-full grid-cols-2 gap-[6px] min-[478px]:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'>
             {animes.map((anime, index: number) => (
                 <Card
                     id={anime.mal_id}
